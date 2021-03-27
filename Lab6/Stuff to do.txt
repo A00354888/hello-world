@@ -1,0 +1,14 @@
+Homework
+  Lab1
+  convert2X.py
+  findNumber.py
+  findWords.py
+  
+  Lab2
+  ProfitComputation.py
+  IntToString.py
+  StringToInt.py
+  
+  Lab3
+  DirectoryManager.py
+  TestTests.py
