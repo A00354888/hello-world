@@ -1,4 +1,4 @@
-Homework
+Homework : Statement coverage and PEP8 validation
   Lab1
   convert2X.py
   findNumber.py
@@ -7,8 +7,4 @@ Homework
   Lab2
   ProfitComputation.py
   IntToString.py
-  StringToInt.py
-  
-  Lab3
-  DirectoryManager.py
-  TestTests.py
+  StringToInt.py  
