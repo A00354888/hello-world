@@ -22,16 +22,20 @@ def str_to_int(strArgument):
             try:
                 sumTotal = sumTotal + digitsDict.get(strArgument[digit]) * factor
             except Exception as error:
-                raise ValueError('String cannot be converted to Integer.')
+                raise ValueError('String cannot be converted to Integer.'+error)
             factor = factor * base
     return sumTotal
 
+def main(args):
+    if len(args) > 1:
+        userInput = args[1]
+    else:
+        userInput = input("Please enter a number: ")
 
-if len(sys.argv) > 1:
-    userInput = sys.argv[1]
-else:
-    userInput = input("Please enter a number: ")
+    result = str_to_int(userInput)
+    print("Original value: " + userInput + ". Type: " + str(type(userInput)))
+    print("Converted value: " + str(result) + ". Type: " + str(type(result)))
 
-result = str_to_int(userInput)
-print("Original value: " + userInput + ". Type: " + str(type(userInput)))
-print("Converted value: " + str(result) + ". Type: " + str(type(result)))
+
+if __name__ == "__main__":
+    main(sys.argv)

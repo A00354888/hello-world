@@ -31,6 +31,7 @@ def decimalToHexadecimal(number):
     hexadecimalNumber = hexDict[number] + hexadecimalNumber
     return hexadecimalNumber
 
+
 def decimalToBinary(number):    
     binaryNumber = ""
     while  number >= 2 :
@@ -39,19 +40,23 @@ def decimalToBinary(number):
     binaryNumber = str(number) + binaryNumber
     return binaryNumber
 
-if len(sys.argv) > 1:
-    userInput = sys.argv[1]
-else:
-    userInput = input("Please enter a number: ")
 
-while not(userInput.isnumeric()) :
-    userInput = input("Please enter a non decimal number: ")
+def main(args):
+    if len(args) > 1:
+        userInput = args[1]
+    else:
+        userInput = input("Please enter a number: ")
 
-userNumber = int(userInput)
-hexadecimalNumber = decimalToHexadecimal(userNumber)
-binaryNumber = decimalToBinary(userNumber)
-print("\nDecimal Number: " + userInput)
-print("Binary Number: " + binaryNumber)
-print("Hexadecimal Number: " + hexadecimalNumber + "\n")
+    while not(userInput.isnumeric()) :
+        userInput = input("Please enter a non decimal number: ")
+
+    userNumber = int(userInput)
+    hexadecimalNumber = decimalToHexadecimal(userNumber)
+    binaryNumber = decimalToBinary(userNumber)
+    print("\nDecimal Number: " + userInput)
+    print("Binary Number: " + binaryNumber)
+    print("Hexadecimal Number: " + hexadecimalNumber + "\n")
 
 
+if __name__ == "__main__":
+    main(sys.argv)

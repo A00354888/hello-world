@@ -40,18 +40,22 @@ def decimalToBinary(number):
     binaryNumber = str(number) + binaryNumber
     return binaryNumber
 
+def main(args):
+    if len(args) > 1:
+        userInput = args[1]
+    else:
+        userInput = input("Please enter a number: ")
 
-if len(sys.argv) > 1:
-    userInput = sys.argv[1]
-else:
-    userInput = input("Please enter a number: ")
+    while not(userInput.isnumeric()):
+        userInput = input("Please enter a non decimal number: ")
 
-while not(userInput.isnumeric()):
-    userInput = input("Please enter a non decimal number: ")
+    userNumber = int(userInput)
+    hexadecimalNumber = decimalToHexadecimal(userNumber)
+    binaryNumber = decimalToBinary(userNumber)
+    print("\nDecimal Number: " + userInput)
+    print("Binary Number: " + binaryNumber)
+    print("Hexadecimal Number: " + hexadecimalNumber + "\n")
 
-userNumber = int(userInput)
-hexadecimalNumber = decimalToHexadecimal(userNumber)
-binaryNumber = decimalToBinary(userNumber)
-print("\nDecimal Number: " + userInput)
-print("Binary Number: " + binaryNumber)
-print("Hexadecimal Number: " + hexadecimalNumber + "\n")
+
+if __name__ == "__main__":
+    main(sys.argv)

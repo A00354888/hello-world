@@ -1,5 +1,5 @@
 
-class Contact:
+class Contact:    
 
     def __init__(self, name, email, age=0, country="-"):
         self.name = name
@@ -30,12 +30,12 @@ class Directory:
         FIELD_DELIMITER = "##" 
         contactsFile = open(self.contactsFilePath, "w")
         for contact in self.contacts:
-            contactString = (contact.name + FIELD_DELIMITER + contact.email + FIELD_DELIMITER + str(contact.age) + FIELD_DELIMITER + contact.country).strip() + "\n"
+            contactString = (contact.name+FIELD_DELIMITER+contact.email+FIELD_DELIMITER+str(contact.age)+FIELD_DELIMITER+contact.country).strip()+"\n"
             contactsFile.write(contactString) 
         contactsFile.close()
     
     def addContact(self, contact):
-        if self.searchContact(contact.email) == None:
+        if self.searchContact(contact.email) is None:
             self.contacts.append(contact)
             self.saveContactsInFile()
 
@@ -51,8 +51,7 @@ class Directory:
         print (contactIndex)
         if contactIndex == -1:
             return None
-        else:
-            return self.contacts[contactIndex]
+        return self.contacts[contactIndex]
 
     def searchContactIndex(self, contactEmail):
         index = -1
@@ -69,6 +68,7 @@ class Directory:
     def showAllContacts(self):
         for contact in self.contacts:
             print(contact)
+
 
 x = Directory()
 contact = Contact("Eduardo Siordia", "eduardo.montes@test.com", 31, "MX")

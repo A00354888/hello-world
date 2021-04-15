@@ -1,5 +1,6 @@
 '''
-    Right - Easy test just to validate that the function does what it has to do. Validated that the metadata is different and validate that the file content is equal
+    Right - Easy test just to validate that the function does what it has to do. 
+    Validated that the metadata is different and validate that the file content is equal
     B - I did not find any test case for Boundaries test
     I - I did not find any test case for Inverse relationships test
     C - I did not find any test case for Cross-check test
@@ -29,6 +30,7 @@ class TestMathCeilFunction(unittest.TestCase):
 
     def test_same_equal_content_largefile(self):
         self.assertTrue(filecmp.cmp("LargeFile.txt", "LargeFileEqual2.txt", False))
+
 
 if __name__ == '__main__':
     unittest.main()

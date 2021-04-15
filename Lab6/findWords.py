@@ -1,5 +1,4 @@
 import sys
-import os.path
 from os import path
 
 
@@ -38,18 +37,23 @@ def readTextFile(filePath):
     return file.read()
 
 
-if len(sys.argv) == 3:
-    filePath = sys.argv[1]
-    wordList = sys.argv[2].split(",")
-    if not(len(wordList) > 0):
+def main(args):
+    if len(args) == 3:
+        filePath = args[1]
+        wordList = args[2].split(",")
+        if not(len(wordList) > 0):
+            wordList = createUserWordList()
+    else:
+        filePath = input("Enter file name: ")
         wordList = createUserWordList()
-else:
-    filePath = input("Enter file name: ")
-    wordList = createUserWordList()
 
-filePath = askForFilePath(filePath)
-text = readTextFile(filePath)
-returnDict = countWordsInText(text)
+    filePath = askForFilePath(filePath)
+    text = readTextFile(filePath)
+    returnDict = countWordsInText(text)
 
-for word in wordList:
-    print("Number of occurrences in text for word: '" + word + "' is: " + str(returnDict.get(word, 0)))
+    for word in wordList:
+        print("Number of occurrences in text for word: '" + word + "' is: " + str(returnDict.get(word, 0)))
+
+
+if __name__ == "__main__":
+    main(sys.argv)

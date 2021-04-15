@@ -12,7 +12,6 @@ def int_to_str(intArgument):
         8: "8", 9: "9"
     }
     dashChar = ""
-    base = 10
     concatenatedStringNumber = ""
 
     try:
@@ -27,16 +26,21 @@ def int_to_str(intArgument):
 
         concatenatedStringNumber = digitsDict.get(intArgument) + concatenatedStringNumber
     except Exception as error:
-        raise ValueError('Integer cannot be converted to String.')
+        raise ValueError('Integer cannot be converted to String.' + error)
     return dashChar + concatenatedStringNumber
 
 
-if len(sys.argv) > 1:
-    userInput = sys.argv[1]
-else:
-    userInput = input("Please enter a number: ")
+def main(args):
+    if len(args) > 1:
+        userInput = args[1]
+    else:
+        userInput = input("Please enter a number: ")
 
-intUserInput = int(userInput)
-result = int_to_str(intUserInput)
-print("Original value: " + userInput + ". Type: " + str(type(intUserInput)))
-print("Converted value: " + result + ". Type: " + str(type(result)))
+    intUserInput = int(userInput)
+    result = int_to_str(intUserInput)
+    print("Original value: " + userInput + ". Type: " + str(type(intUserInput)))
+    print("Converted value: " + result + ". Type: " + str(type(result)))
+
+
+if __name__ == "__main__":
+    main(sys.argv)
