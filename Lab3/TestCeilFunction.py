@@ -25,7 +25,7 @@ class TestMathCeilFunction(unittest.TestCase):
 
     @unittest.skipIf(sys.version_info < (3,0), "Python2 returns a float value")
     def test_is_integer(self):        
-        self.assertTrue(isinstance(math.ceil(1.1)) == int)
+        self.assertTrue(isinstance(math.ceil(1.1), int))
 
     @unittest.skipIf(sys.version_info >= (3,0), "Python3 returns an integer value")
     def test_is_float(self):        
@@ -35,7 +35,7 @@ class TestMathCeilFunction(unittest.TestCase):
         self.assertEqual(math.ceil(9999999999999999999999.1), 10000000000000000000000)
 
     def test_very_low_value(self):
-        self.assertEqual(math.ceil(-9999999999999999999999.1), 9999999999999999999998)
+        self.assertEqual(math.ceil(-999999999999999999.1), -1000000000000000000)
 
 
 if __name__ == '__main__':
